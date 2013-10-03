@@ -41,3 +41,19 @@ optional arguments:
                         and 4 through 6).
   -a, --all             redact all pages
 ```
+
+#### Redaction Masks
+To create a redaction mask, just create a new PDF that is the same size and layout as the ones you want to redact.  The mask should be transparent except for the parts that you want to redact (which should be opaque).  An easy way to do this using your favorite photo editor is outlined here.  
+
+* Open one of your scanned documents in the photo editor
+     * This will be used as the background layer (or layers if there are multiple pages)
+* create a new transparent layer and position it "above" the background layer
+* draw a black rectangle (or watermark, or whatever you want) over the parts you want to cover
+* repeat the steps above for each page if a multi-page mask is desired
+* delete the background layer(s)
+     * This should leave only the transparent layers with the redactions (or watermarks).
+* export the result as a PDF document the same size as the original scan
+     * You may have to do this one page at a time, depending on your photo editor.
+          * PDF software (Acrobat on Windows or Preview on Mac) can re-assemble the pages into a single PDF document.
+
+An example redaction mask suitable for redacting a scanned quiz or exam (8.5 x 11" paper) where the name is in the "usual" place in the upper-left corner of the first page is included in this repository.  This file is named <tt>QuizMask.pdf</tt>.
