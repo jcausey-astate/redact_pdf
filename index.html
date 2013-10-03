@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Redact PDF : Redact image-based PDF files based on a simple PDF mask.  Software in Python." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Redact PDF</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/jasoncausey/redact_pdf">View on GitHub</a>
+
+          <h1 id="project_title">Redact PDF</h1>
+          <h2 id="project_tagline">Redact image-based PDF files based on a simple PDF mask.  Software in Python.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/jasoncausey/redact_pdf/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/jasoncausey/redact_pdf/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>
+<a name="automated-image-redaction-of-pdfs" class="anchor" href="#automated-image-redaction-of-pdfs"><span class="octicon octicon-link"></span></a>Automated (Image) Redaction of PDFs</h3>
+
+<p>This script is designed for redaction of PDF files containing <strong>only</strong> image data.  The original use case is redacting names from scanned quizzes and exams from a university course.</p>
+
+<h4>
+<a name="python-version" class="anchor" href="#python-version"><span class="octicon octicon-link"></span></a>Python Version</h4>
+
+<p>This script will work with the 2.7x branch of Python currently (the PyPDF2 library doesn't seem to work in 3.x yet). </p>
+
+<h4>
+<a name="what-this-script-will-do" class="anchor" href="#what-this-script-will-do"><span class="octicon octicon-link"></span></a>What this script will do:</h4>
+
+<p>Given a PDF file as input, this script will apply a redaction mask (also a PDF) to the file.  The resulting images in the output will have the redaction mask applied "on top" of the input file's images.  Useful for watermarking files, or for redaction (obviously).  </p>
+
+<h4>
+<a name="what-this-script-will-not-do" class="anchor" href="#what-this-script-will-not-do"><span class="octicon octicon-link"></span></a>What this script will <strong>not</strong> do:</h4>
+
+<p>If your original PDF contains <em>text</em> data (not just images), this script <em>will not</em> securely redact the information.  The text data will still be searchable, selectable, and extractable from the result document.  Again, this script is <strong><em>not</em></strong> intended for secure redaction of PDFs containing text objects.</p>
+
+<h4>
+<a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h4>
+
+<p>This script requires the excellent <tt>PyPDF2</tt> package, available at <a href="https://github.com/mstamy2/PyPDF2/">https://github.com/mstamy2/PyPDF2/</a> , as well as the <tt>argparse</tt> package (now standard in 2.7x).  If you don't have a current Python install, <tt>argparse</tt> is available at <a href="http://code.google.com/p/argparse/">http://code.google.com/p/argparse/</a> .</p>
+
+<h4>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h4>
+
+<p>You may run the script through python with:</p>
+
+<pre><code>python redact_pdf.py [options] inputfile redactionmask [outputfile]
+</code></pre>
+
+<p>or directly by making it executable:</p>
+
+<pre><code>./redact_pdf.py inputfile redactionmask [outputfile]
+</code></pre>
+
+<p><strong>Options</strong>:</p>
+
+<pre><code>usage: redact_pdf.py [-h] [-v] [-p PAGES | -a]
+                     inputfile redactionmask [outputfile]
+
+positional arguments:
+  inputfile             input PDF file
+  redactionmask         PDF file containing the redaction mask
+  outputfile            output file name (default is to overwrite input file)
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -v, --verbose         show more output
+  -p PAGES, --pages PAGES
+                        List or range of pages (ex: 1,4-6 would redact page 1
+                        and 4 through 6).
+  -a, --all             redact all pages
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Redact PDF maintained by <a href="https://github.com/jasoncausey">jasoncausey</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
